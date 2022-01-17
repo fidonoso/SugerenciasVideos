@@ -11,7 +11,7 @@ class Multimedia{
         this.setUrl(nuevaurl)
     }
     setInicio(){
-        alert('Este método es para realizar un cambio en la URL del video')
+        console.log('Este método es para realizar un cambio en la URL del video')
     }
 }
 class Reproductor extends Multimedia{
@@ -27,8 +27,8 @@ class Reproductor extends Multimedia{
     set id(nuevoid){
         this.setId(nuevoid);
     }
-    setInicio(){
-        '...'
+    setInicio(tiempo){
+        fpublic(this.getUrl()+`?start=${tiempo}`, this.getId());
     }
     playMultimedia(){
       fpublic(this.getUrl(), this.getId());
@@ -36,15 +36,20 @@ class Reproductor extends Multimedia{
     }
 }
 const fpublic =(url, id)=>{
-    // alert(id)
+    // agregar al DOM
     var id2=document.getElementById(id)
     id2.setAttribute('src', url)
 };
+//Instanciar video musical
 var m1 = new Reproductor("https://www.youtube.com/embed/OAmYyr1xCBA", 'musica')
+//instanciar pelicula
 var p1= new Reproductor("https://www.youtube.com/embed/gHggOUt9DA8", 'peliculas')
+//instanciar series
 var s1=new Reproductor('https://www.youtube.com/embed/WDGEFEtkXSQ', 'series')
-console.log(m1)
+//agregar musica, peliculas y series al DOM
 m1.playMultimedia()
 p1.playMultimedia()
 s1.playMultimedia()
+//reproducir video musical desde el segundo 9 (muy buen tema) con el metodo setInicio
+m1.setInicio(9)
 
