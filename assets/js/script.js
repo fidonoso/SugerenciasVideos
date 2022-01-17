@@ -1,11 +1,8 @@
 class Multimedia{
     constructor(url){
         let _url= url;
-        // let _id= id;
         this.getUrl=()=> _url;
         this.setUrl=(nuevaurl)=> _url=nuevaurl;
-        // this.getId=()=> _id;
-        // this.setId=(nuevoid)=> _id=nuevoid;
     }
     get url(){
         return this.getUrl();
@@ -13,12 +10,6 @@ class Multimedia{
     set url(nuevaurl){
         this.setUrl(nuevaurl)
     }
-    // get id(){
-    //     return this.getId();
-    // }
-    // set id(nuevoid){
-    //     this.setId(nuevoid);
-    // }
     setInicio(){
         alert('Este método es para realizar un cambio en la URL del video')
     }
@@ -40,11 +31,20 @@ class Reproductor extends Multimedia{
         '...'
     }
     playMultimedia(){
-        // this.get
+      fpublic(this.getUrl(), this.getId());
+
     }
 }
-
-var v1 = new Reproductor("https://www.youtube.com/embed/OAmYyr1xCBA", 'musica')
-console.log(v1)
-v1.setInicio()
+const fpublic =(url, id)=>{
+    // alert(id)
+    var id2=document.getElementById(id)
+    id2.setAttribute('src', url)
+};
+var m1 = new Reproductor("https://www.youtube.com/embed/OAmYyr1xCBA", 'musica')
+var p1= new Reproductor("https://www.youtube.com/embed/gHggOUt9DA8", 'peliculas')
+var s1=new Reproductor('https://www.youtube.com/embed/WDGEFEtkXSQ', 'series')
+console.log(m1)
+m1.playMultimedia()
+p1.playMultimedia()
+s1.playMultimedia()
 
